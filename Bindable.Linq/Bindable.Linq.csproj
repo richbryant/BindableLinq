@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>db9410a6-3e19-4aa7-8ad2-ddf0c1613743</ProjectGuid>
+    <ProjectGuid>{DB9410A6-3E19-4AA7-8AD2-DDF0C1613743}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Bindable.Linq</RootNamespace>
@@ -31,24 +31,128 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Adapters\Incoming\BindableCollectionAdapterBase.cs" />
+    <Compile Include="Adapters\Incoming\BindingListToBindableCollectionAdapter.cs" />
+    <Compile Include="Adapters\Incoming\ObservableCollectionToBindableCollectionAdapter.cs" />
+    <Compile Include="Adapters\Outgoing\BindingListAdapter.cs" />
+    <Compile Include="Aggregators\Aggregator.cs" />
+    <Compile Include="Aggregators\CustomAggregator.cs" />
+    <Compile Include="Aggregators\ElementAtAggregator.cs" />
+    <Compile Include="Aggregators\Numerics\DecimalNullNumeric.cs" />
+    <Compile Include="Aggregators\Numerics\DecimalNumeric.cs" />
+    <Compile Include="Aggregators\Numerics\DoubleNullNumeric.cs" />
+    <Compile Include="Aggregators\Numerics\DoubleNumeric.cs" />
+    <Compile Include="Aggregators\Numerics\FloatNullNumeric.cs" />
+    <Compile Include="Aggregators\Numerics\FloatNumeric.cs" />
+    <Compile Include="Aggregators\Numerics\Int32NullNumeric.cs" />
+    <Compile Include="Aggregators\Numerics\Int32Numeric.cs" />
+    <Compile Include="Aggregators\Numerics\Int64NullNumeric.cs" />
+    <Compile Include="Aggregators\Numerics\Int64Numeric.cs" />
+    <Compile Include="Aggregators\Numerics\INumeric.cs" />
+    <Compile Include="BindableEnumerable.cs" />
+    <Compile Include="Collections\BindableCollection.cs" />
+    <Compile Include="Collections\BindableGrouping.cs" />
+    <Compile Include="Configuration\BindingConfiguration.cs" />
+    <Compile Include="Configuration\DefaultBindingConfiguration.cs" />
+    <Compile Include="Configuration\ExplicitBindingConfiguration.cs" />
+    <Compile Include="Configuration\IBindingConfiguration.cs" />
+    <Compile Include="DependcyAnalysis.cs" />
+    <Compile Include="Dependencies\CollectionChangeObserver.cs" />
+    <Compile Include="Dependencies\Defintions\ExternalDependencyDefinition.cs" />
+    <Compile Include="Dependencies\Defintions\ItemDependencyDefinition.cs" />
+    <Compile Include="Dependencies\Defintions\StaticDependencyDefinition.cs" />
+    <Compile Include="Dependencies\DependencyComparer.cs" />
+    <Compile Include="Dependencies\EventDependency.cs" />
+    <Compile Include="Dependencies\ExpressionAnalysis\ExpressionAnalyzer.cs" />
+    <Compile Include="Dependencies\ExpressionAnalysis\ExpressionFlattener.cs" />
+    <Compile Include="Dependencies\ExpressionAnalysis\Extractors\DependencyExtractor.cs" />
+    <Compile Include="Dependencies\ExpressionAnalysis\Extractors\ExternalDependencyExtractor.cs" />
+    <Compile Include="Dependencies\ExpressionAnalysis\Extractors\IDependencyExtractor.cs" />
+    <Compile Include="Dependencies\ExpressionAnalysis\Extractors\ItemDependencyExtractor.cs" />
+    <Compile Include="Dependencies\ExpressionAnalysis\Extractors\StaticDependencyExtractor.cs" />
+    <Compile Include="Dependencies\ExpressionAnalysis\IExpressionAnalyzer.cs" />
+    <Compile Include="Dependencies\IAcceptsDependencies.cs" />
+    <Compile Include="Dependencies\IDependency.cs" />
+    <Compile Include="Dependencies\IDependencyDefinition.cs" />
+    <Compile Include="Dependencies\Instances\ExternalDependency.cs" />
+    <Compile Include="Dependencies\Instances\ItemDependency.cs" />
+    <Compile Include="Dependencies\Instances\StaticDependency.cs" />
+    <Compile Include="Dependencies\PathNavigation\IPathNavigator.cs" />
+    <Compile Include="Dependencies\PathNavigation\PathNavigator.cs" />
+    <Compile Include="Dependencies\PathNavigation\TokenFactories\ClrMemberTokenFactory.cs" />
+    <Compile Include="Dependencies\PathNavigation\TokenFactories\ITokenFactory.cs" />
+    <Compile Include="Dependencies\PathNavigation\TokenFactories\SilverlightMemberTokenFactory.cs" />
+    <Compile Include="Dependencies\PathNavigation\TokenFactories\WindowsFormsMemberTokenFactory.cs" />
+    <Compile Include="Dependencies\PathNavigation\TokenFactories\WpfMemberTokenFactory.cs" />
+    <Compile Include="Dependencies\PathNavigation\Tokens\ClrMemberToken.cs" />
+    <Compile Include="Dependencies\PathNavigation\Tokens\IToken.cs" />
+    <Compile Include="Dependencies\PathNavigation\Tokens\MemberToken.cs" />
+    <Compile Include="Dependencies\PathNavigation\Tokens\SilverlightMemberToken.cs" />
+    <Compile Include="Dependencies\PathNavigation\Tokens\WindowsFormsMemberToken.cs" />
+    <Compile Include="Dependencies\PathNavigation\Tokens\WpfMemberToken.cs" />
+    <Compile Include="Dependencies\PropertyChangeObserver.cs" />
+    <Compile Include="Framework\BindableEntity.cs" />
+    <Compile Include="Framework\IEntityStore.cs" />
+    <Compile Include="Framework\IIdentifier.cs" />
+    <Compile Include="Framework\IIdentityMap.cs" />
+    <Compile Include="Framework\InMemoryEntityStore.cs" />
+    <Compile Include="Helpers\CommonEventArgsCache.cs" />
+    <Compile Include="Helpers\DefaultComparer.cs" />
+    <Compile Include="Helpers\DispatcherBound.cs" />
+    <Compile Include="Helpers\ElementActioner.cs" />
+    <Compile Include="Helpers\ElementComparerFactory.cs" />
+    <Compile Include="Helpers\InternalExtensions.cs" />
+    <Compile Include="Helpers\IPropertyReader.cs" />
+    <Compile Include="Helpers\LifetimeCouplings.cs" />
+    <Compile Include="Helpers\LifetimeExtensions.cs" />
+    <Compile Include="Helpers\PropertyReaderFactory.cs" />
+    <Compile Include="Helpers\StateScope.cs" />
+    <Compile Include="Helpers\Weak.cs" />
+    <Compile Include="Helpers\WeakEvent.cs" />
+    <Compile Include="Helpers\WeakEventProxy.cs" />
+    <Compile Include="Helpers\WeakTimer.cs" />
+    <Compile Include="Interfaces\Events\EvaluatingEventArgs.cs" />
+    <Compile Include="Interfaces\Events\EvaluatingEventHandler.cs" />
+    <Compile Include="Interfaces\IBindable.cs" />
+    <Compile Include="Interfaces\IBindableCollection.cs" />
+    <Compile Include="Interfaces\Internal\IBindableGrouping.cs" />
+    <Compile Include="Interfaces\Internal\IEditableBindableGrouping.cs" />
+    <Compile Include="Interfaces\IOrderedBindableCollection.cs" />
+    <Compile Include="Interfaces\IRefreshable.cs" />
+    <Compile Include="Iterators\GroupByIterator.cs" />
+    <Compile Include="Iterators\ItemSorter.cs" />
+    <Compile Include="Iterators\Iterator.cs" />
+    <Compile Include="Iterators\OrderByIterator.cs" />
+    <Compile Include="Iterators\ProjectionRegister.cs" />
+    <Compile Include="Iterators\SelectIterator.cs" />
+    <Compile Include="Iterators\UnionIterator.cs" />
+    <Compile Include="Iterators\WhereIterator.cs" />
+    <Compile Include="Operators\EmptySwitchDefinition.cs" />
+    <Compile Include="Operators\ISwitch.cs" />
+    <Compile Include="Operators\ISwitchCase.cs" />
+    <Compile Include="Operators\ISwitchDeclaration.cs" />
+    <Compile Include="Operators\Operator.cs" />
+    <Compile Include="Operators\ProjectOperator.cs" />
+    <Compile Include="Operators\SwitchCase.cs" />
+    <Compile Include="Operators\SwitchDefault.cs" />
+    <Compile Include="Operators\SwitchOperator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Threading\DispatcherFactory.cs" />
+    <Compile Include="Threading\IDispatcher.cs" />
+    <Compile Include="Threading\WpfDispatcher.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>
